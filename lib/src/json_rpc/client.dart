@@ -22,7 +22,7 @@ class RPCClient {
   Future<String> rpcPost(Map<String, dynamic> reqJson) async {
     this.id++;
     http.Response response =
-        await http.post(rpcAddress, body: json.encode(reqJson));
+        await http.post(Uri.parse(rpcAddress), body: json.encode(reqJson));
     if (response.statusCode != 200) {
       return null; // TODO - make this an error response with more details
     }
